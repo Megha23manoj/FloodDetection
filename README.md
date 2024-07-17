@@ -38,7 +38,7 @@ is used. A mean-field approximate inference for the dense CRF with Gaussian pair
 
 ![image](https://github.com/user-attachments/assets/fffec990-0927-4059-9b9e-243b539a82da)
 
-If it is less than the specified threshold value, there is no enough vehicle area in the image to carry out our estimation i.e; no vehicle detected and depth with respect to vehicle is set to zero. If it has larger area than the threshold, then we move on to water depth estimation with respect to vehicles. If the image has multiple vehicles, it will take the one with larger area since largest contour is considered here.
+If it is less than the specified threshold value, there is no enough vehicle area in the image to carry out our estimation i.e; no vehicle detected and depth with respect to vehicle is set to zero. If it has larger area than the threshold, then we move on to water depth estimation with respect to vehicles. If the image has multiple vehicles, it will take the one with larger area since largest contour is considered here.
 
 ![image](https://github.com/user-attachments/assets/cc539b73-504a-48af-b02e-936ca4465a4b)
 
@@ -51,7 +51,7 @@ Fuzzy based systems are used to deal with parameters which can take a range of v
 
 ![image](https://github.com/user-attachments/assets/fbece65e-f16b-432a-b64b-1130529ba4ad)
 
-After defining the rules, all of them (for low flood, medium flood and high flood) are aggregated together. It aggregates the fuzzy membership functions of all the three levels of flooding to be defuzzified. Defuzzification is the process of converting the degrees of membership of output linguistic variables into numerical value
+After defining the rules, all of them (for low flood, medium flood and high flood) are aggregated together. It aggregates the fuzzy membership functions of all the three levels of flooding to be defuzzified. Defuzzification is the process of converting the degrees of membership of output linguistic variables into numerical value
 
 ![image](https://github.com/user-attachments/assets/fd3dd5d9-dcbf-4445-a2de-ae3987bab262)
 
