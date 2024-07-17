@@ -3,12 +3,14 @@ Our modern world faces a number of problems due to the drastic changes in the cl
 
 ### Solution Approach
 The proposed method analyses the image in detail as it examines the major components in the scene like humans, vehicles, color and brown area. The figure below illustrates the components involved, starting from the module of preprocessing, after which largest brown area segmentation takes place. This is followed by the estimation of water depth with respect to human beings and then water depth estimation with respect to vehicles. This along with the average brown colour intensity and largest brown area is compared against the rule set generated. Finally, the extent of flood is  estimated by fuzzy based decision making.
+
 ![image](https://github.com/user-attachments/assets/1bc01973-ca1f-48af-9c6b-a62a0f3c5098)
 
 #### Preprocessing:
 The image goes through gamma correction and HSV Conversion. 
 
 ![image](https://github.com/user-attachments/assets/67ed7a60-c24c-431c-ba0c-d148831c1a45)
+
 #### Largest Brown Area Segmentation:
 The brown color area in the image which is assumed to be the region of water, has to be segmented out. This region has to be further taken for estimation of brown color intensity. 
 
@@ -19,6 +21,7 @@ The brown color area in the image which is assumed to be the region of water, ha
 If the largest contour area is less than a specified threshold value, then the system directly prints no flood and exits. This is because water area is taken as the most significant parameter in estimating flood. If it is greater than the threshold value, then the average or mean of the segmented image pixels is taken as average brown colour intensity which is also fed to the fuzzy module for estimation of flood
 
 ![image](https://github.com/user-attachments/assets/c3b5b71e-7d9d-470d-8637-021c2d58bbe5)
+
 #### Water Depth Estimation with respect to human
 The faces present in the scene are detected by face detection by haar classifiers. Here, we use a pre trained classifier of detecting faces for ease. If face is detected we draw proportionate bounding boxes beneath the face assuming it to be the body. The human body is thus divided into three regions namely torso region, waist region and knee region which is high, medium and low levels respectively.
 
@@ -27,15 +30,18 @@ The faces present in the scene are detected by face detection by haar classifier
 The tallest human segmented out is divided into the below mentioned three levels. The brown color segmented image i.e water segmented image is trimmed out to these three regions. Each region is thresholded so that we can find the contours and sum of contours in each region.
 
 ![image](https://github.com/user-attachments/assets/bf248df7-b12d-40d3-ac8a-3b6c137c296b)
+
 The region where the water area is the largest, is taken to be the level of water with respect to the human being taken. The water area corresponding to this region is taken as the water depth compared against human beings and is fed to the final fuzzy module. The system finds the maximum among the three areas.
 #### Water Depth estimation with respect to vehicles
 For semantic segmentation a new form of convolutional neural network that combines the strengths of Convolutional Neural Networks (CNNs) and Conditional Random Fields (CRFs)-based probabilistic graphical modelling
 is used. A mean-field approximate inference for the dense CRF with Gaussian pairwise potentials as a Recurrent Neural Network (RNN) which can refine coarse outputs from a traditional CNN in the forward pass, while passing error differentials back to the CNN during training is formulated.
 
 ![image](https://github.com/user-attachments/assets/fffec990-0927-4059-9b9e-243b539a82da)
+
 If it is less than the specified threshold value, there is no enough vehicle area in the image to carry out our estimation i.e; no vehicle detected and depth with respect to vehicle is set to zero. If it has larger area than the threshold, then we move on to water depth estimation with respect to vehicles. If the image has multiple vehicles, it will take the one with larger area since largest contour is considered here.
 
 ![image](https://github.com/user-attachments/assets/cc539b73-504a-48af-b02e-936ca4465a4b)
+
 After the vehicle is segmented out from the image successfully, a bounding box is drawn along the contour of the vehicle detected and is divided into three equal parts.
 
 ![image](https://github.com/user-attachments/assets/18204bff-d3ff-4fca-b637-a8cb4834c959)
