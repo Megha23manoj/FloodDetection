@@ -32,7 +32,10 @@ The tallest human segmented out is divided into the below mentioned three levels
 ![image](https://github.com/user-attachments/assets/bf248df7-b12d-40d3-ac8a-3b6c137c296b)
 
 The region where the water area is the largest, is taken to be the level of water with respect to the human being taken. The water area corresponding to this region is taken as the water depth compared against human beings and is fed to the final fuzzy module. The system finds the maximum among the three areas.
+
 #### Water Depth estimation with respect to vehicles
+Code Link : https://github.com/torrvision/crfasrnn
+
 For semantic segmentation a new form of convolutional neural network that combines the strengths of Convolutional Neural Networks (CNNs) and Conditional Random Fields (CRFs)-based probabilistic graphical modelling
 is used. A mean-field approximate inference for the dense CRF with Gaussian pairwise potentials as a Recurrent Neural Network (RNN) which can refine coarse outputs from a traditional CNN in the forward pass, while passing error differentials back to the CNN during training is formulated.
 
